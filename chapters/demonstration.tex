@@ -1,0 +1,67 @@
+% !TEX root = main.tex
+\chapter{Demonstration}\label{sec:demonstration}
+To better explain how ReviewerNet works and supports the reviewer selection process, this section presents an example user scenario. We introduce Robert, a fictitious academic researcher. Robert is in the IPC of a conference in the field of Computer Graphics; he is the primary reviewer for a paper, and he is in charge of finding three additional reviewers, plus alternative reviewers in case of decline. 
+
+Below we describe Robert's interaction with ReviewerNet. In addition, since a static description may not adequately convey the dynamic nature of Robert's investigation, we refer the reader to the accompanying video at \url{https://www.youtube.com/watch?v=JnomPO8QI28}, which illustrates the scenario described below. 
+
+The demonstration platform is available at \url{https://reviewernet.org/}.  
+
+\section{Data collection}
+
+To construct the reference dataset for this scenario, we collected papers, authors and citations from eight selected sources in the field of Computer Graphics, taken from the Semantic Scholar Research Corpus \cite{ammar:18}. The dataset includes data from the journals and conference proceedings listed in Table \ref{table:sources}, spanning the years in-between 1995 and 2018. After an automatic cleaning steps to remove non-papers (such as acknowledgments to reviewers, prefaces, etc.), the final reference dataset contains 17.754 papers, 108.155 citations, and 23386 authors. 
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+\centering
+\begin{tabular}{|l|c|}
+\hline
+ACM Transactions on Graphics & 2833\\ 
+Computer Graphics and Applications  & 1983 \\ 
+Computer Graphics Forum & 3238\\ 
+Computers \& Graphics & 2155\\ 
+IEEE Transactions on Visualization and Computer Graphics & 3236\\ 
+Visual Computer & 2107\\ 
+Proceedings of IEEE Conference Visualization (pre 2006) & 501 \\ 
+Proceedings of ACM SIGGRAPH (pre 2003) & 1701\\
+\hline
+\end{tabular}
+\caption{The selected sources from the Semantic Scholar Research Corpus used in our demonstration scenario. The final reference dataset contains 17.754 papers, 108.155 citations, and 23386 authors.}
+\label{table:sources}
+\end{table}
+
+
+%\input{stats.tex}
+
+\section{ReviewerNet in action}
+
+Robert is in charge of finding reviewers for a paper about polycube maps, authored by Marco Tarini and Daniele Panozzo. He inputs thir names in the \emph{Submitting Authors} field (also with the help of the drop-down menu), and ticks the \emph{Done} checkbox. The authors are now shown in the Researcher Timeline and the Reviewer Network, marked as purple, and the rest of the interface becomes active. 
+
+\subsection{Building the Paper Network} 
+\label{sec:demoPN}
+The first step is to build the Paper Network, that is, a set of key papers which are relevant to the submission topic. Later on, Robert will chose his reviewers among the authors of those key papers. Robert thinks of a first set of three documents about polycube maps, which serve as seeds for building the network (\emph{PolyCube-Maps}, 2004; \emph{A divide-and-conquer approach for automatic polycube maps construction}, 2009; \emph{$L_1$-based construction of polycube maps from complex shapes}, 2014). He inputs their titles in the \emph{Key papers} field. His knowledge of the domain helps him in this initial step, though he can also take advantage of title-based suggestions, which are shown in a drop-down menu, listed by publication year. The three papers are now included in the Paper Network, along with their in- and out-citations. 
+
+Robert can now expand the network, to discover additional documents. With a double click, he selects interesting nodes, i.e., papers he deems relevant to polycube maps. The Paper Network then updates with the in- and out-citations of the selected papers, so that Robert can further explore the literature. Robert navigates the network, and decides to reduce its size by deselecting a paper he realizes he is no longer interested in, because its citations suggest it addresses a different topic than the submission. Selected papers are marked with a blue contour circle, both in the Paper Network and the Researcher Network. 
+
+Robert continues until he feels the selected papers and their citations offer a good coverage of the literature about the topic at hand. Robert checks the paper details, including the link to the respective DBLP page, shown in the bottom right corner of the interface. A quick keyword search with \emph{polycube maps} in the \emph{Key papers} field let him notice that there is an important paper he was missing (\emph{Efficient volumetric poly-cube map construction}, 2016); the paper can be easily told apart from papers already in the network, thanks to visual cues in the drop-down menu. 
+
+While Robert builds his Paper Network, ReviewerNet automatically adds the authors of selected papers in the Researcher Timeline and the Researcher Network, as candidate reviewers.  The selection of 6 papers produces a list of 28 candidate reviewers. 
+
+
+\subsection{Exploring the Researcher Timeline and the Researcher Network} 
+ 
+Robert now explores the Researcher Timeline to assess the suitability of candidate reviewers. In the Researcher Timeline, researchers are represented as horizontal lines, spanning their academic career. Robert checks the expertise of candidate reviewers by looking at their stage of career, and production over years. Since each view is linked to the other views, Robert checks topic coverage by looking at who published what, by hovering the mouse over papers to highlight their authors in all the views. He checks conflicts with the submitting authors, thanks to colours and font style. 
+
+The visualization also help Robert analysing the network of collaborators of candidate reviewers. This is fundamental to find sets of independent, well distributed reviewers. With a mouse click on a researcher, ReviewerNet highlights his/her co-authors, and highlights on demand the common publications. Robert further investigates on the collaborations among candidate reviewers by navigating the Researcher Network, a graph visualization of co-authorship relations among the candidate reviewers and their collaborators in the dataset. Robert pans and zooms and uses the different handlers available to discover the communities of collaborators. He founds that there are four distinct groups of collaborators dealing with the topic at hand.
+
+\subsection{Selecting reviewers} 
+
+Once Robert identifies one or more candidate reviewers who fit his requirements, he inputs their names in the \emph{Selected Reviewers} field (also with the help of the drop-down menu). He first decides to chose Pierre Paulin, a senior researcher. The colouring of the selected reviewer switches to blue both in the Researcher Timeline and the Researcher Network, and the colouring of his co-authors switches to grey, to identify them as conflicting potential reviewers, and tell them apart from the remaining available candidates. Then, Robert evaluates Hujun Bao, whose expertise fits with his requirements, then he decides to go for a younger researcher, and selects one of Bao's younger collaborators, Jin Huang. Among the remaining candidates, Robert chooses Xiao-Ming Fu, because he belongs to a different community than the previous two, and he has been working very recently on the subject at hand. 
+
+Robert downloads his list of three reviewers with a click on the download button. The list reports reviewers' names and bibliographic references to their papers. 
+
+After contacting the reviewers, Robert finds that one of them declines his invitation. Fortunately, for each reviewer selected by Robert, ReviewerNet has automatically added a list of potential alternative reviewers, in case of a negative answer by the original reviewer. Alternative reviewers are chosen from the candidate ones, so that they only conflict with the declining reviewer. Robert evaluates possible substitutes, again taking advantage of ReviewerNet functionalities, and finds his best replacement.  
+
+\subsection{Discussion} 
+
+This abreviated scenario shows how ReviewerNet can support investigating the literature, learning who are the experts in a field, and exploring relationships among them. The description above necessarily simplified a typical intercation process: Robert could of course switch back and forth between different tasks. For example, he could have refined the Paper Network after having examined the list of candidate reviewers. He could have adjusted the size of the list by fine tuning the parameters defining the criteria on productivity to be included in the list, or the criteria that defined conflicts. The process is iterative in nature, and the desiderata may evolve as the search proceeds. Thanks to the user-friendly interface which leaves the user control over the process, ReviewerNet enables the user to narrow down as well as widen the scope of analysis. In turn, the combined visualization of different aspects of the problem at hand well supports the decision making process.     
+

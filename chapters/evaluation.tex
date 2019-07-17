@@ -1,0 +1,141 @@
+% !TEX root = main.tex
+\chapter{Evaluation}\label{sec:evaluation}
+
+\begin{table}[!t]
+	\renewcommand{\arraystretch}{1.3}
+	\caption{Information about the 15 participants in the user study.}
+	\vspace{0.3cm}
+	\label{table:infotesters}
+	\begin{subtable}[t]{.99\linewidth}
+		\centering%
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\ & PhD student & $\leq$ 12 & $>$ 12\\
+			\hline
+			{\bf Years from PhD} & 0.0\% & 66.7\% &  33.3\% \\
+			\hline
+		\end{tabular}
+  \end{subtable}
+	\par\bigskip
+  \begin{subtable}[t]{.99\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\ & $<$ 10 & 10 - 20 & $>$ 20\\
+			\hline
+			{\bf Reviews per year} & 6.7\% & 40.0\% &  53.3\% \\
+			\hline
+		\end{tabular}
+  \end{subtable}
+	\par\bigskip
+  \begin{subtable}[t]{.99\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\ & $\leq$ 3 & $>$ 3\\
+			\hline
+			{\bf Reviewer selections in 2018} & 13.3\% &  86.7\% \\
+			\hline
+		\end{tabular}
+  \end{subtable}
+\end{table}
+
+
+%\subsection{Experimental setup}
+
+%[scegli un nome e tieni quello: (end)users/volunteers/subjects/experts...]
+
+We evaluated ReviewerNet on a dataset, described in Section \ref{sec:demonstration}, focused on Computer Graphics. We decided to ask the scientific community directly, that is, to involve real end-users, instead of in-house testers. We sent an email to the 60 members of the IPC of Eurographics Conference 2018, and to additional experts with a record of publications in the top venues of the sector. None of the subjects were involved in the work on ReviewerNet, and none of them knew the system prior to the evaluation test. The participation was on a volunteer basis, with no reward. 
+
+We collected 7 responses from the IPC members (10\% of the IPC) and 8 responses from additional experts for a total of 15 users. The questionnaire was anonymous and the volunteers were asked to answer three questions about themselves: number of years from their PhD, reviews and reviewer selections per year; Table \ref{table:infotesters} shows the distribution of the results of this part of the questionnaire. 
+
+%The members of the EG IPC were asked to search three reviewers with ReviewerNet, for one of the EG submissions they had searched reviewers for. 
+The volunteers were asked to search three reviewers for a paper that they had to choose reviewers for in the recent past. This was done so that we could not only collect feedback on the system itself, but also enable the volunteers to comparatively evaluate the performance of the system.
+
+For training, the volunteers were only provided with a 6-minutes video demonstrating the usage of ReviewerNet, namely the video recording the scenario in Section \ref{sec:demonstration}. We did not give any additional training. Also, we asked for a response within five days. This was done to evaluate whether it was easy to get acquainted with ReviewerNet, and whether the system was intuitive and quick to learn. Only one user out of 15 (6.7\% of the sample) reported s/he was not able to figure out how to use the system. The other 14 (93.3\%) were able to complete the task assigned with the little support offered. This confirms the user-friendliness of the instrument even if the tool offers many different interaction modalities.
+
+The rest of the questionnaire was divided in two sections, whose questions and summary of answers are reported in Table \ref{table:formsection1} and Table \ref{table:formsection2}, respectively. The first section asked the user's opinion about the different functionalities of ReviewerNet, namely: finding key papers (and hence key researchers); presenting the scientific career of candidate reviewers; avoiding conflicts of interest; and finding sets of well distributed reviewers:% The possible answers followed a five-point scale from \emph{Very poor} to \emph{Excellent}. Table \ref{table:formsection1} summarizes the results for this section:
+\begin{itemize}
+\item [73.3\%] of the testers evaluated ReviewerNet as either good or excellent in finding key papers and researchers. One of the testers observed that {\em "[...] inserting manually key papers, takes a little more time, but then the system helps a lot navigating trough related papers and authors"};
+\item [80.0\%] of the testers evaluated as good or excellent the presentation of the scientific career of candidate reviewers. One of the testers found that {\em "[...] the timeline also is a great added value with respect to imagining whether an author is doing a similar research now or he did many years ago"};
+\item [ 86.7\%] of the testers thought ReviewerNet was good or excellent to help avoiding conflicts of interest; 
+\item [ 66.7\%] evaluated as good or excellent ReviewerNet support to find sets of well distributed reviewers. One of the testers found  {\em "[...] a little difficult the interpretation of the researchers network  % on the top/right. The view is a bit complicated, not immediately clear which node corresponds to the clicked reviewer from the bars on the top/left,
+[...] but probably again it is just a matter of more practice}".
+\end{itemize}
+
+The second section of the questionnaire asked the users an overall opinion on ReviewerNet, in terms of improvement of the overall quality of the reviewing process, and reduction in the time spent to search for reviewers:  % The possible answers followed a five-point scale from \emph{Strongly disagree} to \emph{Strongly agree}. %The third part of the questionnaire it required to compare the reviewer selection experience with and without ReviewerNet; this was done so that we could not only collect feedback on the system itself, but also comparative data with respect to the traditional pipeline. This section was for the EG IPC members only: as the request was sent just after the first review cycle had been completed, this made sure that the testers had a recent enough memory of their experience without Reviewernet. The third section asked the users whether searching for reviewers had taken shorter time with ReviewerNet; whether ReviewerNet had proposed good candidate reviewers they had not thought about, or missed candidate reviewers they had in mind; and additional comments. 
+%
+%Table \ref{table:formsection2} summarizes the results for the second section. 
+\begin{itemize}
+\item [71.4\%] of the testers agreed or strongly agreed that ReviewerNet helps choosing good sets of reviewers, and hence improves the overall quality of the reviewing process;
+\item [71.4\%] agreed or strongly agreed that ReviewerNet reduces the time spent to look for good sets of reviewers. 
+\end{itemize}
+
+In addition, the users could insert additional comments about ReviewerNet strengths and weaknesses, and suggestions for improvement.
+One of the testers observed how {\em "[...] the tool actually follows my current practice, that is, look among authors of key papers"} but with the added value of the explicit labeling of conflicting reviewers. He/she also observed that {\em "[...] the labeling of conflicting reviewers helps also a lot. [...] the tool also helps in selecting reviewers from different areas, covering better the topic of a paper."}
+
+
+%\subsection{Results}
+
+
+\begin{table*}[!t]
+	\renewcommand{\arraystretch}{1.3}
+	\caption{ Distribution of answers to the first section of the questionnaire (14 participants) where the acronyms in the first row stand for: Very poor, Poor, Average, Good and Excellent.}
+	\vspace{0.3cm}
+	\label{table:formsection1}
+    \centering%
+		\begin{tabular}{|p{0.4\textwidth}|c|c|c|c|c|}
+			\hline
+			& VP & P & A & G & E\\
+			\hline 
+			{{\em How do you rate ReviewerNet in finding key papers and researchers?}}                      & 0.0\% & 0.0\% &  26.7\% & {\bf 46.6\%} & 26.7\% \\
+			\hline
+			{{\em How do you rate ReviewerNet in presenting the scientific career of candidate reviewers?}} & 0.0\% & 6.7\% &  13.3\% & {\bf 46.6\%} & 33.3\% \\
+			\hline
+			{{\em How do you rate ReviewerNet in avoiding conflicts of interest?}}                          & 0.0\% & 6.7\% &   6.7\% & 40.0\% & {\bf 46.7\%} \\
+			\hline
+			{{\em How do you rate ReviewerNet in finding sets of well distributed reviewers?}}              & 0.0\% & 6.7\% &  26.7\% & {\bf 40.0\%} & 26.7\% \\
+			\hline
+		\end{tabular}
+\end{table*}
+
+\begin{table*}[!t]
+	\renewcommand{\arraystretch}{1.3}
+	\caption{Distribution of answers to the second section of the questionnaire  (13 participants) where the acronyms in the first row stand for: Strongly Disagree, Disagree, Neutral, Agree and Strongly agree.}
+	\vspace{0.3cm}
+	\label{table:formsection2}
+    \centering%
+		\begin{tabular}{|p{0.4\textwidth}|c|c|c|c|c|}
+			\hline
+			& SD & D & N & A & SA\\
+			\hline 
+			{{\em I think that ReviewerNet helps choosing good sets of reviewers, and hence improves the overall quality of the reviewing process}.} & 0.0\% & 0.0\% &  28.6\% & {\bf 35.7\%} & {\bf 35.7\%} \\
+			\hline
+			{{\em I think that ReviewerNet reduces the time spent to look for good sets of reviewers}.}                                              & 0.0\% & 0.0\% &  28.6\% & 28.6 & {\bf 42.9} \\
+			\hline 
+		\end{tabular}
+	\par
+\end{table*}
+
+
+
+Concerning ReviewerNet ability to find key papers and researchers, one of the testers observed that vision-related venues (e.g., conferences such as CVPR and ICCV and journal such as IJCV and TPAMI) were missing from the list of sources for key papers and authors on which the demonstration tool was built. He/she observed that the tool would have been more useful if these were included, since many works overlap vision and graphics. Similarly, another tester observed that the homogeneous nature of the sources selected made so the proposed reviewers could show no enough divergence and could be scarce. In this respect, it is worth noticing that ReviewerNet can be built over \emph{any} subset of the Semantic Scholar corpus and customized to include the venues of interest. Therefore, these comments mostly apply to the particular instance used for testing.%, rather than to the platform per se. 
+
+In the light of these considerations, we believe the results from the evaluation study show a very high value of user satisfaction, and also potential room for improvement. 
+  
+
+%[Commentare sulla relazione tra expertise e giudizio - if any, ma pare di no]
+
+
+
+
+
+
+  
+
+
+
+
+   
+
+      
