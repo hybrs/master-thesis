@@ -1,0 +1,123 @@
+\documentclass[11pt,a4paper,openany,oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\newcommand*{\nesearrow}{\ensuremath{\searrow\mkern-18mu\nearrow}}
+\newcommand{\virgolette}[1]{``#1''}
+\usepackage{titlesec}
+	\titleformat{\chapter}[display]
+	{\normalfont\Large\bfseries}{\chaptertitlename\ \thechapter}{15pt}{\huge}
+	\titleformat{\section}
+	{\normalfont\large\bfseries}{\thesection}{1em}{}
+\pagestyle{fancy}
+\fancyhf{} % azzeriamo i campi
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhead[C]{\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\usepackage{subcaption}
+\usepackage{cite}
+\usepackage{url}
+
+\usepackage[Sonny]{fncychap}
+
+\ChNameVar{\Large}
+\ChTitleVar{\Large\bfseries}
+
+
+
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definizione}[chapter]
+\begin{document}
+	\thispagestyle{empty} 
+	\begin{Large}
+		\begin{center}
+			UNIVERSIT\'A DEGLI STUDI DI PISA
+		\end{center}
+	\end{Large}
+	\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.7]{images/cherubino.png}
+	\end{figure}
+	\begin{Large}
+		\begin{center}
+			FACOLT\'A DI SCIENZE MATEMATICHE, FISICHE E NATURALI
+			\vspace{1.5cm}
+
+			%DIPARTIMENTO DI INFORMATICA
+			%\vspace{0.1cm}
+
+			MASTER DEGREE IN COMPUTER SCIENCE
+			
+			\textit{Data Science \& Technologies curriculum}
+			%\vspace{1.5cm}
+			%\textit{(classe L-31)}
+			\vspace{2.5cm}
+
+%			PROVA FINALE 
+%			\vspace{1cm}
+
+			\textbf{ReviewerNet.org:}
+
+
+			\textbf{Visualizing Citation and Authorship Relations\\for Finding Reviewers}
+			\vspace{1.5cm}
+			\begin{table}[h!]
+				\centering
+				\label{my-label}
+				\begin{tabular}{ccccc}
+					Candidate              & {\color{white} aaaaaaaa} &  &  & Supervisor                 					\\Mario Leonardo Salinas &                                             &  &  						& Prof. Paolo Cignoni \\
+                   &                                             &  &  &                          
+
+				\end{tabular}
+			\end{table}
+		\end{center}
+	\end{Large}
+	\vspace{0.5cm}
+	\begin{normalsize}
+		\begin{center}
+			Anno Accademico 2018 / 2019
+		\end{center}
+	\end{normalsize}	
+\newpage
+	\cleardoublepage
+	\pagenumbering{arabic}
+	\tableofcontents
+	\begin{normalsize}
+-----------------------------------------------------------------------------------------------
+	\end{normalsize}
+%	\textbf{Ringraziamenti}
+%	\newline
+	\textbf{Bibliography}
+	
+	\input{chapters/intro.tex}
+	
+	\input{chapters/related.tex}
+    
+    \input{chapters/methods.tex}
+    
+    \input{chapters/demonstration.tex}
+    
+    \input{chapters/evaluation.tex}
+    
+    \input{chapters/conclusions.tex}
+    
+    \chapter*{Acknowledgments}
+
+The authors would like to thanks the Allen Institute for Artificial Intelligence for providing the Semantic Scholar corpus of bibliographic data.
+
+
+%    \input{chapters/thanks.tex}
+\newpage
+\bibliography{ReviewerNetBib}
+\bibliographystyle{IEEEtran}
+%    \input{biblio.tex}
+\end{document}
