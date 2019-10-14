@@ -1,0 +1,14 @@
+TESI
+
+Dettagli implementazione d3js, force simulation, constrain on x 
+estendere usage/valutazione con immagini e grafici
+stato dell'arte nell'intro 
+
+1 intro + obiettivi
+2 related
+3 data collection + notation
+4 uI
+5 implementazione
+6 demo
+7 eval
+8 conclusions
