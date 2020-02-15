@@ -1,0 +1,53 @@
+toDo Eurographics 2019/12/13
+
+1 riga per ogni keypap +  posizione fissata anche dopo update
+
+ Raggio paper più grande per selected papers + forza proporzionale al raggio
+
+x undo/redo
+
+x Submitters vs conflicted (2 campi distinti)
+
+x Nuova ResearcherTimeline:
+
+--------------
+Submitters
+-----------
+Conflicted wt Sub
+------------
+Candidate + selected & conflict wt selected
+--------------
+
+- Refactoring
+
+x doppioclick su link inserisce paperi
+
+x In key pap cerca anche autori
+
+- Fullscreennare viz
+
+    function abso() {
+        $('#foo').css({
+            position: 'absolute',
+            width: $(window).width(),
+            height: $(window).height()
+        });
+    }
+    abso();
+
+
+ Campo inserimento lista da bibliography
+
+
+
+x Score journal/venue #inCIt
+
+x 6 colori + grigio per j/venue [Bianco, Nero, Rosso, Verde, Giallo, Blu]
+
+Segnalazione a Semantic Scholar delle incongruenze fra id e ?pruning? Paper (manca polycube-maps)
+
+x Visualizzare grafo query parser espanso
+
+#inCit, clique, betweeness, centrality grafo query
+
+Test su 100 paperi del parser 

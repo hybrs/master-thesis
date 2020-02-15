@@ -1,4 +1,5 @@
-\chapter{Introduction}\label{sec:introduction}
+\chapter{Introduction}
+\label{sec:introduction}
 The number of digital academic documents, either newly published papers or documents resulting from digitization efforts, grows at a very fast pace: the Scopus digital repository counts more than 70 million documents and 16 million author profiles~\cite{scopus}; the Web of Science platform has more than 155 million records from over 34,000 journals~\cite{WoS}; Microsoft Academic collects about 210 million publications~\cite{MA}. In 2018, over four thousand new records were added to DBLP~\cite{DBLPrate}, and bibliometric analysts estimated a doubling of global scientific output roughly every nine years~\cite{BoMu15}. Therefore, the volume, variety and velocity of scholarly documents generated satisfies the big data definition, so that we can now talk of \emph{big scholarly data} \cite{KhLi17}. 
 
 Sensemaking in this huge reservoir of data calls for platforms adding an element of automation to standard procedures -- such as literature search, expert finding, or collaborators discovery -- to reduce the time and effort spent by scholars and researchers. In particular, there has been an increase in the number of visual approaches supporting the analysis of scholarly data. Visualization techniques were proposed to help stakeholders to get a general understanding of sets of documents, to navigate them, and to find patterns in publications and citations. Federico et al.~\cite{FeHe17} survey about 109 visual approaches for analysing scientific literature and patents published in-between 1991 and 2016. Most of the works focused on the the visualization of document collections and citation networks. A more ambitious goal for visualization platforms would be to enable users get enough understanding to make decisions. 
@@ -7,16 +8,18 @@ In this work, we focus on the problem of reviewer finding by journal editors or 
 
 We propose ReviewerNet, a visualization platform which facilitates the selection of reviewers. The intuition behind ReviewerNet is that the authors of relevant papers are good candidate reviewers. ReviewerNet offers an interactive visualization of multiple, coordinated views about papers and researchers that help assessing the expertise and conflict of interest of candidate reviewers.
 
+A preliminary version of the platform was presented at the 2019 edition of the Smart Tools and Applications in Graphics conference \cite{stag19}, and after validating the platform with a pool of senior researchers in Computer Graphics (see Chapter~\ref{sec:evaluation}), we incorporated their feedback to improve the tool.
+
 \section{ReviewerNet in a nutshell}
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=\textwidth]{images/screenshot2.png}
+\includegraphics[width=\textwidth]{fig/teaser_colormap2.png}
 \caption{The main interface of ReviewerNet, divided into four main areas: the \textsc{Researcher Timeline } (top left); the \textsc{Paper Network }(bottom left); the \textsc{Researcher Network } (top right); the \textsc{Control Panel } (bottom right). The interaction with these areas allows the users to identify researchers working on the topic defined by a network of papers, to analyse the researchers' contributions through time, and to get aware of co-authorship relations and conflicts.}
 \label{fig:interface}
 \end{figure*}
 
-ReviewerNet supports the various actions that journal editors and IPC members perform while choosing reviewers, namely, searching the literature about the submission topic, looking for active experts in the field, and checking their conflict of interest. ReviewerNet does so by integrating an overview visualization of the literature with a visualization of the career of potential reviewers, their conflict of interests, and their nets of collaborators. This combined visualization helps to make sense of scholarly data, and rapidly get enough understanding to make a sensible decision, as shown in our user study (see Section~\ref{sec:evaluation}). 
+ReviewerNet supports the various actions that journal editors and IPC members perform while choosing reviewers, namely, searching the literature about the submission topic, looking for active experts in the field, and checking their conflict of interest. ReviewerNet does so by integrating an overview visualization of the literature with a visualization of the career of potential reviewers, their conflict of interests, and their nets of collaborators. This combined visualization helps to make sense of scholarly data, and rapidly get enough understanding to make a sensible decision, as shown in our user study (see Chapter~\ref{sec:evaluation}). 
 
 ReviewerNet integrates the visualization of three main classes of data in a single window (see Figure~\ref{fig:interface}):
 
@@ -26,7 +29,9 @@ ReviewerNet integrates the visualization of three main classes of data in a sing
 \item  {\bf Researcher Network} (RN), a graph visualization of co-authorship relations: the nodes represent the authors in the PN and their collaborators in the dataset; the arcs connect authors who have publications in common. The aim of the RN is to visualize the research communities: indeed, the identification of network of collaborators helps looking for sets of independent, non-conflicting reviewers. As with the RT, the RN is built online by ReviewerNet.
 \end{itemize}
 %
-The basic pipeline for finding reviewers with ReviewerNet involves building the Paper Network starting from a small set of seed documents; evaluating possible choices of reviewers, by navigating the Reviewer Timeline and the Reviewer Network; and finally obtaining a justified list of chosen reviewers, along with possible substitutes suggested by ReviewerNet in case of decline.   
+The basic pipeline for finding reviewers with ReviewerNet involves: building the Paper Network starting from a small set of seed documents, \textcolor{red}{whose titles are either manually typed, or imported from a list, and automatically parsed and matched in the dataset}; evaluating possible choices of reviewers, by navigating the Reviewer Timeline and the Reviewer Network; and finally obtaining a justified list of chosen reviewers, along with possible substitutes suggested by ReviewerNet in case of \textcolor{red}{declined invitation}. The user can navigate the different views and interact with the system through simple actions, to drive his/her investigation. Each view in ReviewerNet is linked to the other views, so that so that any action in a view is reflected in the others. Visual cues are used to improve the comprehension during interactive sessions: the \textcolor{red}{position,} colour, size, boundary, and style of visual elements visually represent important characteristics of the entities they stand for. To better explain how ReviewerNet works, the next Section presents an example user scenario. %In addition, since a static description may not adequately convey the dynamic nature of the investigation with ReviewerNet, we refer the reader to the accompanying video at \url{https://www.youtube.com/watch?v=JnomPO8QI28}, which illustrates the scenario described below. Finally, 
+
+The technical details about the system are reported in Chapter \ref{sec:impl}.
 
 The user can navigate the different views and interact with the system through simple actions, to drive his/her investigation. Each view in ReviewerNet is linked to the other views, so that so that any action in a view is reflected in the others. Visual cues are used to improve the comprehension during interactive sessions: the colour, size, boundary, and style of visual elements visually represent important characteristics of the entities they stand for. Moreover, the coherence of visual cues across different views enforces their meaningfulness, and makes it easy for the user to switch between different views without losing focus.  
 
@@ -34,18 +39,18 @@ ReviewerNet builds on a reference database including papers, authors and citatio
 
 \section{Summary of contribution}
 
-We introduce the ReviewerNet visualization platform, which supports the reviewer selection process in the academic domain (Section~\ref{sec:methods}.
+We have introduced the ReviewerNet visualization platform, which supports the reviewer selection process in the academic domain. 
 
-We describe and Section~\ref{sec:userinterface}). 
+In the next chapter, we review state-of-the-art applications and methods built on top of scholarly data (Chapter~\ref{sec:related}).
 
-We demonstrate the platform in the field of Computer Graphics, with a reference dataset containing 17.754 papers, 108.155 citations, 23386 authors. We show how ReviewerNet can be used to search for reviewers who are expert on a certain topic, are at a certain career stage, who have a certain track of publishing records, who are not conflicting with neither the submitters nor other reviewers, and who are well-distributed in the scientific community (Section~\ref{sec:demonstration}). 
+Then, we define our goals and use-case along with the notation that is used in the document (Chapter~\ref{sec:methods}). 
 
-We evaluate the platform through a user study involving 15 real end-users from the Computer Graphics community, and show how they were able to get acquainted with ReviewerNet even with a very limited training, and how they rated very positively ReviewerNet functionalities (Section~\ref{sec:evaluation}).  
+We describe how the user interface is composed and the possible interactions the user can exploit during the reviewer selection (Chapter~\ref{sec:userinterface}). 
+
+We demonstrate the platform in the field of Computer Graphics and show how ReviewerNet can be used to search for reviewers who are expert on a certain topic, are at a certain career stage, who have a certain track of publishing records, who are not conflicting with neither the submitters nor other reviewers, and who are well-distributed in the scientific community (Chapter~\ref{sec:demonstration}). 
+
+We evaluate the platform through a user study involving 15 real end-users from the Computer Graphics community and show how they were able to get acquainted with ReviewerNet even with very limited training, and how they rated very positively ReviewerNet functionalities (Chapter~\ref{sec:evaluation}).  
 
 One of the main advantages of ReviewerNet is that it only relies on citations, to analyse the literature, and on co-authorship relations, to analyse conflicts. Citations are an essential part of research: they represent a credible source of information about topic similarity and intellectual influence. Moreover, since citations have author-chosen reliability, they are a very robust cue to relatedness. Similar reasonings hold for co-authorship relations. Therefore, an important contribution is the demonstration that a well-combined visualization based on citation and co-authorship relations only can support the reviewer search process, without the need for more complicated content analysis techniques.  
 
-The tool is open, and the source code is available at~\url{https://github.com/cnr-isti-vclab/ReviewerNet}.  
-
-
-
-
+All the implementation details can be found in Chapter~\ref{sec:impl}); moreover the tool is open, and the source code is available at~\url{https://github.com/cnr-isti-vclab/ReviewerNet}, while the demonstration platform is available at~\url{https://reviewernet.org}.  
