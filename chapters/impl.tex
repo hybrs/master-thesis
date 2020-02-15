@@ -5,7 +5,7 @@ Reviewernet is a fully client-side application. It builds on a bibliographic dat
 The goal is to facilitate a complex process, as the reviewer selection, through multiple and coordinated views about papers and researchers.
 
 In this chapter, we describe our implementation choices, namely: the data and the preprocessing phase, languages, frameworks and external libraries used to deploy the user interface, concluding with an analysis of the code that implements additional features of our interactive visualization system.
-\section{The Data}
+\section{The data}
 To construct the reference dataset, we collected papers, authors and citations from eight selected sources in the field of Computer Graphics, taken from the Semantic Scholar Research Corpus \cite{ammar:18}. 
 
 The original corpus currently contains more than 180 millions research papers published in all fields, provided as a set of gzipped JSON archives. In Figure \ref{jsonfields} there is the full list of the attributes of a generic record that represents a pubblication.
@@ -39,7 +39,7 @@ Proceedings of ACM SIGGRAPH (pre 2003) & 6718\\
 \end{table}
 
 %\input{stats.tex}
-\subsection*{Pre-Processing}
+\subsection*{Pre-processing}
 \label{sec:preproc}
 
 pre-proc is crucial: we want to lower data complexity, while maintaning choerence and topic coverage to properly support the reviewer selection process. After non-paper and useless attributes deletion, each partition parsed and filtered separatedly by a python script. Then consolidation step 
@@ -48,7 +48,7 @@ pre-proc is crucial: we want to lower data complexity, while maintaning choerenc
     \item merge data obtaining 3 files that represent the Computer Graphic reference corpus. (descrivo i tre file con attributi)
 \end{itemize}
 
-\section{Languages \& External Libraries}
+\section{Languages \& external libraries}
 \label{sec:lang}
 \begin{itemize}
     \item static UI: HTML5, CSS3, bootstrap
