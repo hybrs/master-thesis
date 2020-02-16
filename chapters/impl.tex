@@ -49,8 +49,7 @@ The total size of the corpus is about 180 GB, hence the pre-processing phase is 
     \item merge the filtered data obtaining 3 JSON files (authors, papers, journals) representing the Computer Graphic reference corpus
 \end{itemize}
 
-\paragraph*{The papers' file}
-The papers' file is a JSON representation of the PN. It contains two lists: \textit{nodes} and \textit{links}, representing respectively papers and citation relathionships. 
+The \emph{papers' file} is a JSON representation of the PN. It contains two lists: \textit{nodes} and \textit{links}, representing respectively papers and citation relathionships. 
 \begin{table}[!ht]
     \centering
     \begin{tabular}{ll}
@@ -69,11 +68,9 @@ The papers' file is a JSON representation of the PN. It contains two lists: \tex
    
     \end{table}
 
-    The paper entity is essentialy the same as in the reference corpus with less attributes, as described in Table \ref{tab:nodes}.
+    The paper entity is essentialy the same as in the reference corpus with less attributes, as described in Table \ref{tab:nodes}. The link object is simpler: for each citation in the dataset we have the source and target ID and an integer used by the force simultaion algorithm to compute the graph layout. Since the PN layout is static we assign a default value to this field. 
     
-    The link object is simpler: for each citation in the dataset we have the source and target ID and an integer used by the force simultaion algorithm to compute the graph layout. Since the PN layout is static we assign a default value to this field. 
-\paragraph*{The authors' file}
-This file is a list of JSON, one for each researcher. Table \ref{tab:authors} describes the author entity in ReviewerNet.
+    The \emph{authors' file} is a list of JSON, one for each researcher. Table \ref{tab:authors} describes the author entity in ReviewerNet.
 
 \begin{table}[!ht]
     \centering
@@ -82,7 +79,7 @@ This file is a list of JSON, one for each researcher. Table \ref{tab:authors} de
     value {\color[HTML]{656565}string} & Researcher name.                      \\ \hline
     lastPub {\color[HTML]{656565}list}     & \begin{tabular}[c]{@{}l@{}}List containing the researcher last publication's year\\and S2 ID in the extracted dataset.\end{tabular}\\ \hline
     paperList {\color[HTML]{656565}list} & \begin{tabular}[c]{@{}l@{}}List of papers' IDs authored by this researcher\\in the extracted dataset.\end{tabular}\\    \hline         
-    coAuthList {\color[HTML]{656565}dict} & \begin{tabular}[c]{@{}l@{}}A dictionary with one entry for each co-author\\of this researcher. Each dictionary element contains\\pre-computed information about the shared works\\between the two researchers. \end{tabular}
+    coAuthList {\color[HTML]{656565}dict} & \begin{tabular}[c]{@{}l@{}}A dictionary with one entry for each co-author\\of this researcher. Each dictionary element contains\\pre-computed information about the shared works\\between the two researchers in the extracted dataset. \end{tabular}
 \end{tabular}
     \caption{List and description of researchers' attributes in the ReviewerNet representaion. \label{tab:authors}}
    
@@ -90,8 +87,15 @@ This file is a list of JSON, one for each researcher. Table \ref{tab:authors} de
 
 The \texttt{coAuthList} field is a fondamental one: it allows to rapidly discover conflicts among researchers, easing the real-time computation load.
 
-\paragraph*{The journals' file}
-ccc
+The \emph*{journals' file}, eventually, contains information about the journal/venue names consolidation and useful statistics: for each entity we store:
+    \begin{itemize}
+        \item journal/venue unique ID
+        \item a list of names and achronims that refers to the journal/venue; this list is used in the inexact-search routine
+        \item the number of papers, authors and citations, collected with the reference list \ref{table:sources}
+        \item a pre-computed \emph{journal/venue score}, that is the total number of in-citations, over all the journal/venue publications, coming from a different journal/venue; this score is used to decide in which order the journal/venues will be showed to the user and in the corresponding color-map.  
+    \end{itemize}
+
+This file is loaded first once the user choose the instance upon which want to run a ReviewerNet session and is used to quickly print statistics about the instance, without loading the entire dataset.
 \section{Languages \& external libraries}
 \label{sec:lang}
 \begin{itemize}
