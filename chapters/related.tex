@@ -3,7 +3,7 @@
 
 Concerning the reviewer selection process, the literature mostly focused on the automatic reviewer \emph{assignment} task, which is a different problem than ours. Indeed, the reviewer assignment problem requires finding the best assignment between a finite set of reviewers (e.g., the members of the Programme Committee of a conference) and a finite set of papers (the papers submitted to the conference); this is usually done using bi-partite graph matching and taking into account pertinence of the reviewers with the papers and fair distribution of loads; \cite{WaCh10} provides an overview of this problem. 
 
-In what follows, we briefly review the state-of-the art about the search, analysis and recommendation services offered by scholarly data platforms (Chapter \ref{sec:schoplat}), and the visualization of bibliometric networks (Chapter \ref{sec:bibvis}). 
+In what follows, we briefly review the state-of-the art about the search, analysis and recommendation services offered by scholarly data platforms (Section \ref{sec:schoplat}), and the visualization of bibliometric networks (Section \ref{sec:bibvis}). 
 
 \section{Scholarly data platforms}
 \label{sec:schoplat}
@@ -21,7 +21,8 @@ Concerning visualization of citations, most part of the literature focused on co
 
 \cite{GoLi13} describes a visual analytics system for exploring and understanding document collections, based on computational text analysis; it supports document summarization, similarity, clustering and sentiment analysis, and offers recommendations on related entities for further examination. Rexplore \cite{OsMo13} is a web-based system for search and faceted browsing of publication. Rexplore also includes a graph connecting similar authors, where similarity depends on research topics as extracted from document text. At any rate, using keywords as proxies for research topics can be noisy. Therefore, in ReviewerNet we only rely on co-authorship relations.    
 
+\section{Beyond the state-of-the-art}
+
 Many of the approaches for bibliographic network visualization make limited use of user interaction, and often use a loose coupling of views \cite{FeHe17}. With ReviewerNet, we propose an integrated environment which facilitates a high-level task (reviewer discovery and selection) by means of coordinated, interactive views. Also, only a few works include an in-depth evaluation of the techniques proposed through user studies. We report a user study involving real end-users, namely 15 experts in Computer Graphics, who tested ReviewerNet and filled in an anonymous questionnaire (Chapter \ref{sec:evaluation}).  
 
-
-
+One of the main advantages of ReviewerNet is that it only relies on citations, to analyse the literature, and on co-authorship relations, to analyse conflicts. Citations are an essential part of research: they represent a credible source of information about topic similarity and intellectual influence. Moreover, since citations have author-chosen reliability, they are a very robust cue to relatedness. Similar reasonings hold for co-authorship relations. Therefore, an important contribution is the demonstration that a well-combined visualization based on citation and co-authorship relations only can support the reviewer search process, without the need for more complicated content analysis techniques.  

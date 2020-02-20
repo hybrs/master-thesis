@@ -1,5 +1,10 @@
 % !TEX root = main.tex
-\chapter{Objectives}\label{sec:methods} %and goals of ReviewerNet}
+\chapter{The platform}
+\label{sec:platform}
+
+The following section details the notation used in the rest of the paper, and the formal definition of paper and researcher attributes (Section \ref{sec:methods}). Moreover we describe the composition of the user interface and all the possibile interactions and visual cues (Section \ref{sec:userinterface}).
+\section{Data and notation}
+\label{sec:methods} %and goals of ReviewerNet}
 
 The aim of ReviewerNet is to facilitate the reviewer selection process in the academic domain. While designing ReviewerNet, we took into account the characteristics of the \emph{users}, the users' \emph{tasks}, and the \emph{data} the users are working with \cite{MiAi14}. 
 
@@ -11,10 +16,6 @@ In ReviewerNet, the attributes of a paper which are visualized are its \emph{cit
 
 Researchers have two attributes in ReviewerNet: relevance and conflict of interest. We define a researcher's \emph{relevance} as a reviewer according to the authorship of relevant papers. The concept of relevance can be tuned according to the user needs (e.g., looking for highly-specialized reviewers, as opposed to generalists). The second attribute of researchers is their \emph{conflict of interest}, with either the submitting authors or other reviewers. We model the conflict of interest after \emph{co-authorship} relations: two researchers have a conflict of interest if they have papers in common. We let the degree of conflict, and hence the availability as a reviewer, be modulated according to the number of papers in common, and the years passed since the last co-authored paper, again according to the user intent. 
 
-The following section details the notation used in the rest of the paper, and the formal definition of paper and researcher attributes. 
-
-\section{Notation}
-\label{sec:notation}
 Let $\mathcal{P}$ denote the set of papers in a reference dataset, %, with cardinality $\vert \mathcal{P} \vert$, 
 and let $\mathcal{P}_{V} \subseteq \mathcal{P}$ be the set of papers relevant to a submission. %, with $\mathcal{P}_{V} \subseteq \mathcal{P}$. The set $\mathcal{P}_{V}$ of relevant papers 
 $\mathcal{P}_{V}$ is built by the users starting from a small number of seed papers of their choice (cf. Chapter \ref{sec:demonstration}).%, through the graph expansion functionalities offered by the Paper Network visualization.   

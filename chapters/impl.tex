@@ -45,7 +45,7 @@ Proceedings of ACM SIGGRAPH (pre 2003) & 6718\\
 
 The total size of the corpus is about 180 GB and the data quality if fairly good, but there's ambiguity in how journals and venues are referenced (achronims, multiple abbreviations, ecc...) and there might be consistency problems in citations as extracted from JSON; hence the pre-processing phase is crucial to lower data complexity while maintaining coherence and topic coverage to properly support the reviewer selection process. 
 
-After non-paper ( such as acknowledgements to reviewers, prefaces, etc.) and useless attributes deletion, each single JSON has been parsed and filtered separately with a python script. In this filtering step, we use a string-matching algorithm to correctly assign papers to venues and journals (See Chapter \ref{sec:lang} and \ref{sec:misccode}). Then we have the final consolidation step in which we:
+After non-paper (such as acknowledgements to reviewers, prefaces, etc.) and useless attributes deletion, each single JSON has been parsed and filtered separately with a python script. In this filtering step, we use a string-matching algorithm to correctly assign papers to venues and journals (See Chapter \ref{sec:lang} and \ref{sec:misccode}). Then we have the final consolidation step in which we:
 \begin{itemize}
     \item check citations consistency, to ensure we only extract citations published in one of the venues in our reference list (Table \ref{table:sources});
     \item precompute co-authorship relathionships among researchers;
@@ -104,7 +104,7 @@ This file is loaded first once the user chooses the instance upon which to run a
 
 Our visualization system is fully client-side, meaning it's a web page and the bibliographic database is fully loaded and queried on the local client.
 
-For downloading and pre-processing the data we run a bash script that downloads the gzipped partitions and executes python scripts in parallel to process them. The only external dependency in this phase is the string matching python library \emph{fuzzywuzzy}\footnote{\url{https://github.com/seatgeek/fuzzywuzzy}} that performs the approximate string matching of venues names. We chose this approach to overcome ambiguity problems in the data ( See Chapter \ref{sec:data} ).
+For downloading and pre-processing the data we run a bash script that downloads the gzipped partitions and executes python scripts in parallel to process them. The only external dependency in this phase is the string matching python library \emph{fuzzywuzzy}\footnote{\url{https://github.com/seatgeek/fuzzywuzzy}} that performs the approximate string matching of venues names. We chose this approach to overcome ambiguity problems in the data (See Chapter \ref{sec:data}).
 
 The static part of the website is mainly written in HTML5 and CSS, while for the dynamic one we use Javascript. In the user interface, we also use Bootstrap v3.3.7 responsive and adaptive components and JQueryUi v1.12.1 search-bars and widgets.
 
@@ -116,9 +116,9 @@ Concerning graph drawing, the PN is a fixed-position force simulation, while nod
 ReviewerNet is a visualization platform, but it integrates additional functionalities that the user can exploit to adapt the application to his/her needs and also to speed up the process in general.
 
 \paragraph*{Export and load a ReviewerNet session}
-As soon as the user starts to populate one of the networks or views, it's possible to download a plain-text file representing the current ReviewerNet session. The session file contains information about the parameter values ( see Chapter \ref{sec:userinterface} ), along with submitting, conflicting and candidate reviewer researchers selected and key papers. For each researcher/paper we store both id and name/title because ids referring to the same entity may vary across different corpus snapshots; in this way, if , for example, the id of a researcher in the sessions file is no longer valid, ReviewerNet shows an infromative pop-up that reports the name/title of missing researchers/papers, allowing the user to manually find it with the searchbars.     
+As soon as the user starts to populate one of the networks or views, it's possible to download a plain-text file representing the current ReviewerNet session. The session file contains information about the parameter values (see Chapter \ref{sec:userinterface}), along with submitting, conflicting and candidate reviewer researchers selected and key papers. For each researcher/paper we store both id and name/title because ids referring to the same entity may vary across different corpus snapshots; in this way, if , for example, the id of a researcher in the sessions file is no longer valid, ReviewerNet shows an infromative pop-up that reports the name/title of missing researchers/papers, allowing the user to manually find it with the searchbars.     
 
-The user can download the session file with a mouse click either on the \virgolette{Export Session} button in the CP or in the page footer. If the button in the CP is clicked ReviewerNet will also report reviewers’ names and bibliographic references to their papers ( see Chapter \ref{sec:demonstration} and Figure \ref{fig:list} ).
+The user can download the session file with a mouse click either on the \virgolette{Export Session} button in the CP or in the page footer. If the button in the CP is clicked ReviewerNet will also report reviewers’ names and bibliographic references to their papers (see Chapter \ref{sec:demonstration} and Figure \ref{fig:list}).
 
 Now, if the same user reruns our application and still wants to work on one of its previous sessions, with a mouse click on the \virgolette{Import Session} button in the page footer it's possible to load any session file generated by the platform.
 
@@ -148,9 +148,9 @@ We developed a user-friendly procedure to build a customized instance of Reviewe
 Our solution consists of 5 files: 
 \begin{enumerate}
 \item \texttt{download\_and\_parse.sh}, the main file: a bash scripts that downloads each single JSON and runs in parallel python scripts to process the data;
-\item \texttt{parse\_and\_filter.py}, a python script that filters a single JSON with the approximate string matching algorithm ( See Chapter \ref{sec:lang} );
+\item \texttt{parse\_and\_filter.py}, a python script that filters a single JSON with the approximate string matching algorithm (See Chapter \ref{sec:lang});
 \item \texttt{merge\_data.py} , a python script that consolidates and merges the data as filtered from the corpus;
-\item \texttt{journals.txt}, a plain-text JSON file that contains the reference list of venues of which we want to extract the publications; for each venue we store an \emph{id} and a list of possible names with which the venue is referred in the corpus - we need this two information to solve the ambiguity problem with the venues names ( See Chapter\ref{sec:data});
+\item \texttt{journals.txt}, a plain-text JSON file that contains the reference list of venues of which we want to extract the publications; for each venue we store an \emph{id} and a list of possible names with which the venue is referred in the corpus - we need this two information to solve the ambiguity problem with the venues names (See Chapter\ref{sec:data});
 \item \texttt{util.py}, a python library containing all functions and methods that implement parsing, filtering and merging routines.
 \end{enumerate}
 
